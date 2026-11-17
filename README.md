@@ -4,7 +4,7 @@
 Предметная область: фитнес-клуб (клиенты, абонементы, платежи, тренеры, расписание, записи на занятия).
 
 * СУБД: PostgreSQL 16 (`Database/`)
-* Клиент: WPF (.NET 8, MVVM, EF Core + Npgsql, LiveCharts2, Word Interop) — каталог `FitnessClubIS/`
+* Клиент: WPF (.NET 8, MVVM, EF Core + Npgsql) — каталог `FitnessClubIS/`
 * Документация: `Docs/` (ERD, руководство по стилю, логотип, журналы выполнения)
 
 ## Развёртывание базы данных
