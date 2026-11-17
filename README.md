@@ -7,17 +7,6 @@
 * Клиент: WPF (.NET 8, MVVM, EF Core + Npgsql) — каталог `FitnessClubIS/`
 * Документация: `Docs/` (ERD, руководство по стилю, логотип, журналы выполнения)
 
-## Развёртывание базы данных
-Вся база (структура и данные) находится в одном файле `Database/fitness_club_full.sql`.
-
-В pgAdmin: создать пустую базу `fitness_club` (UTF8) → Tools → Query Tool → открыть файл → F5.
-
-Из консоли:
-```bash
-cd Database
-./run_all.sh localhost 5432 postgres
-```
-`01_schema.sql` — только структура (без данных).
 
 ## Тестовые учётные записи
 | Логин | Пароль | Роль |
