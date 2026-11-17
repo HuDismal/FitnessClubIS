@@ -1,0 +1,19 @@
+-- 7. Добавление и изменение клиента, проверка ограничений
+BEGIN
+ id | last_name | registered_at 
+----+-----------+---------------
+ 31 | Тестова   | 2026-11-17
+(1 row)
+
+INSERT 0 1
+ id | last_name |       phone        
+----+-----------+--------------------
+ 31 | Тестова   | +7 (900) 555-44-34
+(1 row)
+
+UPDATE 1
+ERROR:  duplicate key value violates unique constraint "client_phone_key"
+DETAIL:  Key (phone)=(+7 (900) 555-44-34) already exists.
+ROLLBACK
+ERROR:  new row for relation "client" violates check constraint "client_birth_date_check"
+DETAIL:  Failing row contains (33, Будущий, Тест, null, 2030-01-01, +7 (900) 000-00-00, null, 2026-11-17).

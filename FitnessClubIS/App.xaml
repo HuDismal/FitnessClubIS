@@ -1,0 +1,14 @@
+<Application x:Class="FitnessClubIS.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:conv="clr-namespace:FitnessClubIS.Converters"
+             StartupUri="Views/AuthorizationWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Themes/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <conv:BoolToYesNoConverter x:Key="BoolToYesNo"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,4 @@
+$ ./run_all.sh localhost 5432 postgres
+DROP DATABASE
+CREATE DATABASE
+Готово: структура и данные загружены из fitness_club_full.sql

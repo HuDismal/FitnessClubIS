@@ -1,0 +1,15 @@
+               List of relations
+ Schema |       Name        | Type  |  Owner   
+--------+-------------------+-------+----------
+ public | account           | table | postgres
+ public | account_type      | table | postgres
+ public | booking           | table | postgres
+ public | client            | table | postgres
+ public | client_membership | table | postgres
+ public | membership_type   | table | postgres
+ public | payment           | table | postgres
+ public | trainer           | table | postgres
+ public | training_session  | table | postgres
+ public | workout_type      | table | postgres
+(10 rows)
+

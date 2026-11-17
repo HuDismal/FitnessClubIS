@@ -1,0 +1,14 @@
+    table_name     | count 
+-------------------+-------
+ account_type      |     3
+ account           |     3
+ client            |    30
+ trainer           |     5
+ workout_type      |     6
+ membership_type   |     5
+ client_membership |   142
+ payment           |   142
+ training_session  |   305
+ booking           |  2324
+(10 rows)
+

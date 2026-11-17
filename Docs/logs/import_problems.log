@@ -1,0 +1,63 @@
+### 1. Файл в кодировке Windows-1251 читается как UTF-8
+ERROR:  invalid byte sequence for encoding "UTF8": 0xc8 0xe2
+CONTEXT:  COPY client, line 2
+
+### 2. Та же загрузка с указанием кодировки WIN1251
+COPY 10
+ rows_loaded 
+-------------
+          10
+(1 row)
+
+
+### 3. Запятая внутри значения БЕЗ кавычек
+ERROR:  extra data after last expected column
+CONTEXT:  COPY client, line 2: "Тестов,Пётр,Иванович, мл.,1990-05-05,+7 (900) 000-00-01,test1@example.com,2026-0..."
+
+### 4. Запятая внутри значения В кавычках
+COPY 1
+ last_name |  patronymic   
+-----------+---------------
+ Тестов    | Иванович, мл.
+(1 row)
+
+
+### 5. Повторный импорт того же файла (нарушение UNIQUE)
+ERROR:  duplicate key value violates unique constraint "client_phone_key"
+DETAIL:  Key (phone)=(+7 (993) 149-19-78) already exists.
+CONTEXT:  COPY client, line 2
+
+### 6. Частичный импорт: через временную таблицу, только клиенты 1985 г.р. и моложе
+CREATE TABLE
+COPY 20
+ in_staging 
+------------
+         20
+(1 row)
+
+INSERT 0 13
+ loaded_partially 
+------------------
+               13
+(1 row)
+
+
+### 7. Отмена неверного импорта (транзакция)
+ before 
+--------
+     11
+(1 row)
+
+BEGIN
+COPY 20
+ inside_tx 
+-----------
+        31
+(1 row)
+
+ROLLBACK
+ after_rollback 
+----------------
+             11
+(1 row)
+

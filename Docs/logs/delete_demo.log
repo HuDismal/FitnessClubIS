@@ -1,0 +1,22 @@
+-- 6. Удаление клиента (в транзакции, затем откат, чтобы не потерять данные)
+BEGIN
+ id | last_name | memberships | payments | bookings 
+----+-----------+-------------+----------+----------
+  5 | Попов     |           3 |        3 |       58
+(1 row)
+
+DELETE 1
+ client_left | memberships_left | bookings_left 
+-------------+------------------+---------------
+           0 |                0 |             0
+(1 row)
+
+ROLLBACK
+ clients_after_rollback 
+------------------------
+                     30
+(1 row)
+
+-- 6. Защита справочников от удаления: тренер, у которого есть занятия
+ERROR:  update or delete on table "trainer" violates foreign key constraint "training_session_trainer_id_fkey" on table "training_session"
+DETAIL:  Key (id)=(1) is still referenced from table "training_session".
