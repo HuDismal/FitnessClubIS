@@ -16,4 +16,4 @@
 | trainer | Trainer#2026 | Тренер |
 
 Строка подключения задаётся переменной окружения `FITNESS_DB`
-(по умолчанию `Host=localhost;Port=5432;Database=fitness_club;Username=postgres;Password=postgres`).
+(по умолчанию `Host=SQLstudv2;Port=5432;Database=24ipp12;Username=24ipp12;Password=24ipp12;Search Path=fitness`).
